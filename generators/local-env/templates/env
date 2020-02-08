@@ -1,0 +1,12 @@
+PRISMA_ENDPOINT=http://localhost:<%= prismaPort %>
+
+PRISMA_SECRET=<%= prismaServiceSecret %>
+PRISMA_MANAGEMENT_API_SECRET=<%= prismaManagementAPISecret %>
+
+OAUTH_TOKEN_ENDPOINT=<%= apolloOauthTokenEndpoint %>
+OAUTH_CLIENT_ID=<%= apolloOAuthClientID %>
+
+TEST_OAUTH_CLIENT_ID=<%= apolloOAuthClientCredentialsClientID %>
+TEST_OAUTH_CLIENT_SECRET=<%= apolloOAuthClientCredentialsClientSecret %>
+
+APOLLO_CONTAINER_IMAGE=<%= apolloContainerImageTag %>
