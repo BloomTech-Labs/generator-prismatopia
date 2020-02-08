@@ -22,7 +22,7 @@ yo prismatopia
 
 MIT © [Lambda School](https://lambdaschool.com)
 
-[npm-image]: https://badge.fury.io/js/@lambdaschool/generator-prismatopia
+[npm-image]: https://badge.fury.io/js/%40lambdaschool%2Fgenerator-prismatopia.svg
 [npm-url]: https://www.npmjs.com/package/@lambdaschool/generator-prismatopia
 [daviddm-image]: https://david-dm.org/Lambda-School-Labs/generator-prismatopia.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/Lambda-School-Labs/generator-prismatopia
