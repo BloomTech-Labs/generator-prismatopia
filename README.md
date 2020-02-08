@@ -18,21 +18,11 @@ Then generate your new project:
 yo prismatopia
 ```
 
-## Getting To Know Yeoman
-
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
-
 ## License
 
-MIT © [Bernie Durfee]()
-
+MIT © [Lambda School](https://lambdaschool.com)
 
 [npm-image]: https://badge.fury.io/js/generator-prismatopia.svg
-[npm-url]: https://npmjs.org/package/generator-prismatopia
-[travis-image]: https://travis-ci.com/Lambda-School-Labs/generator-prismatopia.svg?branch=master
-[travis-url]: https://travis-ci.com/Lambda-School-Labs/generator-prismatopia
+[npm-url]: https://www.npmjs.com/package/@lambdaschool/generator-prismatopia
 [daviddm-image]: https://david-dm.org/Lambda-School-Labs/generator-prismatopia.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/Lambda-School-Labs/generator-prismatopia
