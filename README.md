@@ -1,6 +1,6 @@
 # Prismayopia
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+[![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Yeoman generator for Prismatopia
 
 ## Installation
@@ -22,7 +22,7 @@ yo prismatopia
 
 MIT © [Lambda School](https://lambdaschool.com)
 
-[npm-image]: https://badge.fury.io/js/generator-prismatopia.svg
+[npm-image]: https://badge.fury.io/js/@lambdaschool/generator-prismatopia
 [npm-url]: https://www.npmjs.com/package/@lambdaschool/generator-prismatopia
 [daviddm-image]: https://david-dm.org/Lambda-School-Labs/generator-prismatopia.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/Lambda-School-Labs/generator-prismatopia
