@@ -19,7 +19,8 @@
   ],
   "scripts": {
     "pretest": "eslint .",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
@@ -48,8 +49,7 @@
     "yosay": "^2.0.2"
   },
   "jest": {
-    "testEnvironment": "node",
-    "collectCoverage": true
+    "testEnvironment": "node"
   },
   "lint-staged": {
     "*.js": [
