@@ -11,6 +11,6 @@ describe('generator-prismatopia:local-env', () => {
   });
 
   it('creates files', () => {
-    assert.file(['dummyfile.txt']);
+    assert.file(['.env']);
   });
 });
