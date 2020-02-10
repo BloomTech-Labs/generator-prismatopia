@@ -48,7 +48,8 @@
     "yosay": "^2.0.2"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "collectCoverage": true
   },
   "lint-staged": {
     "*.js": [
