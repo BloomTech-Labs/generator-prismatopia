@@ -4,7 +4,7 @@ const chalk = require("chalk");
 const yosay = require("yosay");
 
 module.exports = class extends Generator {
-  prompting() {
+  async prompting() {
     // Have Yeoman greet the user.
     this.log(
       yosay(
@@ -21,10 +21,9 @@ module.exports = class extends Generator {
       }
     ];
 
-    return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
-      this.props = props;
-    });
+    const props = await this.prompt(prompts);
+    // To access props later use this.props.someAnswer;
+    this.props = props;
   }
 
   writing() {
