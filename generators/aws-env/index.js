@@ -1,39 +1,50 @@
-"use strict";
-const Generator = require("yeoman-generator");
-const chalk = require("chalk");
-const yosay = require("yosay");
+'use strict'
+const Generator = require('yeoman-generator')
+const chalk = require('chalk')
+const yosay = require('yosay')
+
+const prompts = [
+  {
+    type: 'input',
+    name: 'applicationName',
+    message: 'What is the name of your application?'
+  },
+  {
+    type: 'input',
+    name: 'environmentName',
+    message: 'What is the name of your environment?'
+  }
+]
 
 module.exports = class extends Generator {
-  async prompting() {
+  async prompting () {
     // Have Yeoman greet the user.
     this.log(
       yosay(
-        `Welcome to the prime ${chalk.red("generator-prismatopia")} generator!`
+        `Welcome to the ${chalk.red('Prismatopia AWS Environment')} generator!`
       )
-    );
+    )
 
-    const prompts = [
-      {
-        type: "confirm",
-        name: "someAnswer",
-        message: "Would you like to enable this option?",
-        default: true
-      }
-    ];
-
-    const props = await this.prompt(prompts);
+    const props = await this.prompt(prompts)
     // To access props later use this.props.someAnswer;
-    this.props = props;
+    this.props = props
   }
 
-  writing() {
+  writing () {
     this.fs.copy(
-      this.templatePath("dummyfile.txt"),
-      this.destinationPath("dummyfile.txt")
-    );
+      this.templatePath('aws.application.env'),
+      this.destinationPath(`aws.${this.props.applicationName}.env`)
+    )
+
+    this.fs.copy(
+      this.templatePath('aws.application.environment.env'),
+      this.destinationPath(
+        `aws.${this.props.applicationName}.${this.props.environmentName}.env`
+      )
+    )
   }
 
-  install() {
-    this.installDependencies();
+  install () {
+    this.installDependencies()
   }
-};
+}
