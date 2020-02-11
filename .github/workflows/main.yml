@@ -40,4 +40,4 @@ jobs:
         - run: echo GIT_BRANCH=$GITHUB_REF
         - run: echo GITHUB_WORKSPACE=$GITHUB_WORKSPACE
         - run: ls -la && pwd
-        - run: GIT_COMMIT_SHA=$GITHUB_SHA GIT_BRANCH=$GITHUB_REF CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter after-build --debug -t lcov --prefix $GITHUB_WORKSPACE
+        - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter after-build --debug -t lcov --prefix $GITHUB_WORKSPACE
