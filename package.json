@@ -19,7 +19,7 @@
   "scripts": {
     "lint": "eslint .",
     "test": "jest",
-    "coverage": "jest --showconfig && jest --coverage || true"
+    "coverage": "jest --showConfig || jest --coverage || true"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
