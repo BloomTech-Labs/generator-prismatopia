@@ -50,8 +50,12 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "coveragePathIgnorePatterns": ["/templates/"],
-    "collectCoverageFrom": ["generators/**/*.js"]
+    "coveragePathIgnorePatterns": [
+      "/templates/"
+    ],
+    "collectCoverageFrom": [
+      "generators/**/*.js"
+    ]
   },
   "lint-staged": {
     "*.js": [
