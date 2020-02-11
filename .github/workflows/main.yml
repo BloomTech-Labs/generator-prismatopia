@@ -42,21 +42,16 @@ jobs:
             echo "::set-env name=GIT_COMMIT_SHA::$GITHUB_SHA"
           if: github.event_name == 'push'
 
-        # - run: npm install -g yarn
-        # - run: yarn install
-        # - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-        # - run: chmod +x ./cc-test-reporter
-        # - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter before-build --debug
-        # - run: yarn run --cwd=$GITHUB_WORKSPACE jest --coverage || true
-        - run: npm install
-        - run: npm run coverage
-        # - uses: borales/actions-yarn@v2.0.0
-        #   with:
-        #     cmd: coverage
+        - run: npm install -g yarn
+        - run: yarn install
+        - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+        - run: chmod +x ./cc-test-reporter
+        - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter before-build --debug
+        - run: yarn coverage
         - run: echo GIT_BRANCH=$GIT_BRANCH
         - run: echo GIT_COMMIT_SHA=$GIT_COMMIT_SHA
         - run: echo GITHUB_WORKSPACE=$GITHUB_WORKSPACE
         - run: ls -la && pwd
         - run: cat coverage/lcov.info
         - run: cat coverage/clover.xml
-        # - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter after-build --debug -t lcov -p "../../home/runner/work/generator-prismatopia/generator-prismatopia"
+        - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter after-build --debug -t lcov -p "../../home/runner/work/generator-prismatopia/generator-prismatopia"
