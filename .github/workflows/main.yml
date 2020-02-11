@@ -54,4 +54,4 @@ jobs:
         - run: ls -la && pwd
         - run: cat coverage/lcov.info
         - run: cat coverage/clover.xml
-        - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter after-build --debug -t lcov -p "../../home/runner/work/generator-prismatopia/generator-prismatopia"
+        - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter after-build --debug -t lcov
