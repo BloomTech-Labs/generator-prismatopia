@@ -25,7 +25,6 @@ jobs:
 
   coverage:
       runs-on: ubuntu-latest
-      # runs-on: macos-latest
       steps:
         - uses: actions/checkout@master
         - uses: actions/setup-node@v1
@@ -47,7 +46,6 @@ jobs:
 
         - run: npm install -g yarn
         - run: yarn install
-        # - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
         - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
         - run: chmod +x ./cc-test-reporter
         - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter before-build --debug
@@ -56,6 +54,5 @@ jobs:
         - run: echo GIT_COMMIT_SHA=$GIT_COMMIT_SHA
         - run: echo GITHUB_WORKSPACE=$GITHUB_WORKSPACE
         - run: ls -la && pwd
-        - run: cat coverage/lcov.info
-        - run: cat coverage/clover.xml
+        # - run: cat coverage/lcov.info
         - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter after-build --debug -t lcov
