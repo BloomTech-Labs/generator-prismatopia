@@ -47,7 +47,7 @@ jobs:
         - run: chmod +x ./cc-test-reporter
         - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter before-build --debug
         # - run: yarn run --cwd=$GITHUB_WORKSPACE jest --coverage || true
-        # - run: npm install
+        - run: npm install
         - run: npm run coverage
         # - uses: borales/actions-yarn@v2.0.0
         #   with:
