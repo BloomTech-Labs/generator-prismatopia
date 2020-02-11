@@ -44,8 +44,8 @@ jobs:
             echo "::set-env name=GIT_COMMIT_SHA::$GITHUB_SHA"
           if: github.event_name == 'push'
 
-        - run: npm install -g yarn
-        - run: yarn install
+        # - run: npm install -g yarn
+        # - run: yarn install
         - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
         - run: chmod +x ./cc-test-reporter
         - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter before-build --debug
