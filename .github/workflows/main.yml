@@ -6,23 +6,7 @@ on:
       - master
   pull_request:
 
-
 jobs:
-  # test:
-
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Run ESLint
-  #       uses: stefanoeb/eslint-action@1.0.2
-  #     - name: Test & publish code coverage
-  #       uses: paambaati/codeclimate-action@v2.4.0
-  #       if: always()
-  #       env:
-  #         CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }}
-  #         debug: true
-
   coverage:
       runs-on: ubuntu-latest
       steps:
@@ -32,34 +16,14 @@ jobs:
           with:
             node-version: '12'
 
-        - run: npm install -g yarn
-        - run: yarn install
+        - name: GitHub Action for Yarn
+          uses: Borales/actions-yarn@v2.1.0
+          with:
+            cmd: install
 
         - name: Test and publish code coverage
           uses: paambaati/codeclimate-action@v2.4.0
           env:
             CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }}
           with:
-            # The report file must be there, otherwise Code Climate won't find it
             debug: true
-
-        # - name: Set ENV for codeclimate (pull_request)
-        #   run: |
-        #     git fetch --no-tags --prune --depth=1 origin +refs/heads/$GITHUB_HEAD_REF:refs/remotes/origin/$GITHUB_HEAD_REF
-        #     echo "::set-env name=GIT_BRANCH::$GITHUB_HEAD_REF"
-        #     echo "::set-env name=GIT_COMMIT_SHA::$(git rev-parse origin/$GITHUB_HEAD_REF)"
-        #   if: github.event_name == 'pull_request'
-
-        # - name: Set ENV for codeclimate (push)
-        #   run: |
-        #     echo "::set-env name=GIT_BRANCH::$GITHUB_REF"
-        #     echo "::set-env name=GIT_COMMIT_SHA::$GITHUB_SHA"
-        #   if: github.event_name == 'push'
-
-        # - run: npm install -g yarn
-        # - run: yarn install
-        # - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-        # - run: chmod +x ./cc-test-reporter
-        # - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter before-build --debug
-        # - run: yarn coverage
-        # - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter after-build --debug -t lcov
