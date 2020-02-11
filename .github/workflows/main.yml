@@ -27,9 +27,6 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@master
-        - uses: actions/setup-node@master
-          with:
-            node-version: '12'
 
         - name: Set ENV for codeclimate (pull_request)
           run: |
@@ -50,7 +47,7 @@ jobs:
         - run: chmod +x ./cc-test-reporter
         - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter before-build --debug
         # - run: yarn run --cwd=$GITHUB_WORKSPACE jest --coverage || true
-        - run: npm install
+        # - run: npm install
         - run: npm run coverage
         # - uses: borales/actions-yarn@v2.0.0
         #   with:
@@ -60,4 +57,5 @@ jobs:
         - run: echo GITHUB_WORKSPACE=$GITHUB_WORKSPACE
         - run: ls -la && pwd
         - run: cat coverage/lcov.info
+        - run: cat coverage/clover.xml
         - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter after-build --debug -t lcov -p "../../home/runner/work/generator-prismatopia/generator-prismatopia"
