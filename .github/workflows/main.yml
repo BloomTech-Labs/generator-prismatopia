@@ -24,7 +24,7 @@ jobs:
   #         debug: true
 
   coverage:
-      runs-on: ubuntu-16.04
+      runs-on: ubuntu-latest
       # runs-on: macos-latest
       steps:
         - uses: actions/checkout@master
