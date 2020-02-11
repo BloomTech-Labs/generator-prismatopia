@@ -30,14 +30,28 @@ jobs:
         - uses: actions/setup-node@master
           with:
             node-version: '12'
+
+        - name: Set ENV for codeclimate (pull_request)
+          run: |
+            git fetch --no-tags --prune --depth=1 origin +refs/heads/$GITHUB_HEAD_REF:refs/remotes/origin/$GITHUB_HEAD_REF
+            echo "::set-env name=GIT_BRANCH::$GITHUB_HEAD_REF"
+            echo "::set-env name=GIT_COMMIT_SHA::$(git rev-parse origin/$GITHUB_HEAD_REF)"
+          if: github.event_name == 'pull_request'
+
+        - name: Set ENV for codeclimate (push)
+          run: |
+            echo "::set-env name=GIT_BRANCH::$GITHUB_REF"
+            echo "::set-env name=GIT_COMMIT_SHA::$GITHUB_SHA"
+          if: github.event_name == 'push'
+
         - run: npm install -g yarn
         - run: yarn install
         - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
         - run: chmod +x ./cc-test-reporter
         - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter before-build --debug
         - run: yarn coverage
-        - run: echo GIT_COMMIT_SHA=$GITHUB_SHA
-        - run: echo GIT_BRANCH=$GITHUB_REF
+        - run: echo GIT_BRANCH=$GIT_BRANCH
+        - run: echo GIT_COMMIT_SHA=$GIT_COMMIT_SHA
         - run: echo GITHUB_WORKSPACE=$GITHUB_WORKSPACE
         - run: ls -la && pwd
         - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter after-build --debug -t lcov --prefix $GITHUB_WORKSPACE
