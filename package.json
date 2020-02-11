@@ -19,7 +19,8 @@
   "scripts": {
     "lint": "eslint .",
     "test": "jest",
-    "coverage": "jest --showConfig || jest --coverage || true"
+    "precoverage": "jest --showConfig",
+    "coverage": "jest --coverage || true"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
