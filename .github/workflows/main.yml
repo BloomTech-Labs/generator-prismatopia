@@ -44,9 +44,9 @@ jobs:
 
         # - run: npm install -g yarn
         # - run: yarn install
-        - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-        - run: chmod +x ./cc-test-reporter
-        - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter before-build --debug
+        # - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        # - run: chmod +x ./cc-test-reporter
+        # - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter before-build --debug
         # - run: yarn run --cwd=$GITHUB_WORKSPACE jest --coverage || true
         - run: npm install
         - run: npm run coverage
@@ -59,4 +59,4 @@ jobs:
         - run: ls -la && pwd
         - run: cat coverage/lcov.info
         - run: cat coverage/clover.xml
-        - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter after-build --debug -t lcov -p "../../home/runner/work/generator-prismatopia/generator-prismatopia"
+        # - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter after-build --debug -t lcov -p "../../home/runner/work/generator-prismatopia/generator-prismatopia"
