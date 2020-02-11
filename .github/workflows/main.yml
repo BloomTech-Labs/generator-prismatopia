@@ -39,5 +39,4 @@ jobs:
             debug: true
           with:
             coverageCommand: yarn coverage
-            coverageLocations:
-              - .
+            coverageLocations: "."
