@@ -27,18 +27,20 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@master
+
         - uses: actions/setup-node@v1
           with:
             node-version: '12'
 
+        - run: npm install -g yarn
+        - run: yarn install
+
         - name: Test and publish code coverage
           uses: paambaati/codeclimate-action@v2.4.0
           env:
-            # Get it on https://codeclimate.com/repos/{repo id}/settings/test_reporter
             CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }}
           with:
             # The report file must be there, otherwise Code Climate won't find it
-            coverageCommand: yarn coverage
             debug: true
 
         # - name: Set ENV for codeclimate (pull_request)
