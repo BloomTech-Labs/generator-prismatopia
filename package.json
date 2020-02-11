@@ -14,7 +14,6 @@
   ],
   "main": "generators/index.js",
   "keywords": [
-    "",
     "yeoman-generator"
   ],
   "scripts": {
@@ -50,7 +49,9 @@
     "yosay": "^2.0.2"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": ["/templates/"],
+    "collectCoverageFrom": ["generators/**/*.js"]
   },
   "lint-staged": {
     "*.js": [
