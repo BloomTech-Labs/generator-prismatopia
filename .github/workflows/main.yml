@@ -32,11 +32,8 @@ jobs:
             node-version: '12'
         - run: npm install -g yarn
         - run: yarn install
-        # - run: yarn build
-        - uses: paambaati/codeclimate-action@master
-          env:
-            CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }}
-          with:
-            coverageCommand: yarn coverage
-            coverageLocations: "./coverage/lcov.info:lcov"
-            debug: true
+        - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        - run: chmod +x ./cc-test-reporter
+        - run: CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }} ./cc-test-reporter before-build
+        - run: yarn coverage
+        - run: CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }} ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
