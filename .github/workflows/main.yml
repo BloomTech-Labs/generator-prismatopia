@@ -24,8 +24,8 @@ jobs:
   #         debug: true
 
   coverage:
-      # runs-on: ubuntu-latest
-      runs-on: macos-latest
+      runs-on: ubuntu-16.04
+      # runs-on: macos-latest
       steps:
         - uses: actions/checkout@master
 
@@ -44,7 +44,8 @@ jobs:
 
         - run: npm install -g yarn
         - run: yarn install
-        - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+        # - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+        - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
         - run: chmod +x ./cc-test-reporter
         - run: CC_TEST_REPORTER_ID=${{ secrets.CodeClimateReporterId }} ./cc-test-reporter before-build --debug
         - run: yarn coverage
