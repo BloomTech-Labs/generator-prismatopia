@@ -28,6 +28,9 @@ jobs:
       # runs-on: macos-latest
       steps:
         - uses: actions/checkout@master
+        - uses: actions/setup-node@v1
+          with:
+            node-version: '12'
 
         - name: Set ENV for codeclimate (pull_request)
           run: |
