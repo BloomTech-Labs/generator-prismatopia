@@ -63,9 +63,7 @@ module.exports = class extends Generator {
     // Have Yeoman greet the user.
     this.log(
       yosay(
-        `Welcome to the prismadelic ${chalk.red(
-          'generator-prismatopia'
-        )} generator!`
+        `Ready to setup your local ${chalk.red('Prismatopia')} environment?`
       )
     )
 

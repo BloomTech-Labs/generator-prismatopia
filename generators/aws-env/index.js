@@ -18,10 +18,9 @@ const prompts = [
 
 module.exports = class extends Generator {
   async prompting () {
-    // Have Yeoman greet the user.
     this.log(
       yosay(
-        `Welcome to the ${chalk.red('Prismatopia AWS Environment')} generator!`
+        `Ready to create a ${chalk.red('Prismatopia')} AWS environment?`
       )
     )
 
