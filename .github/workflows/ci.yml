@@ -26,6 +26,6 @@ jobs:
           env:
             CC_TEST_REPORTER_ID: ${{ secrets.CodeClimateReporterId }}
           with:
-            coverageCommand: make coverage
+            coverageCommand: yarn coverage
             coverageLocations: "./coverage/clover.xml:clover"
             debug: true
