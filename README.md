@@ -2,23 +2,28 @@
 
 > Yeoman generator for Prismatopia
 
-[![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
+[![NPM version][npm-image]][npm-url]
+[![Dependency Status][daviddm-image]][daviddm-url]
 [![Maintainability](https://api.codeclimate.com/v1/badges/d3970d4328eeb48ad49b/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/generator-prismatopia/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d3970d4328eeb48ad49b/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/generator-prismatopia/test_coverage)
 
-## Installation
-
-First, install [Yeoman](http://yeoman.io) and generator-prismatopia using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+## Install Yeoman and the Prismatopia generator
 
 ```bash
-npm install -g yo
-npm install -g generator-prismatopia
+yarn global add yo
+yarn global add @lambdaschool/generator-prismatopia
 ```
 
-Then generate your new project:
+## Generate a Prismatopia project
 
 ```bash
 yo prismatopia
+```
+
+## Generate `.env`
+
+```bash
+yo prismatopia:local-env
 ```
 
 ## License
