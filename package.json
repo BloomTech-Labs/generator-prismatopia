@@ -21,7 +21,7 @@
     "test": "jest",
     "precoverage": "jest --showConfig",
     "coverage": "jest --coverage || true",
-    "update-submodule": "git pull --recurse-submodules && git submodule update --remote --recursive"
+    "update-submodules": "git pull --recurse-submodules && git submodule update --remote --recursive"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
