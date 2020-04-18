@@ -1,5 +1,5 @@
 {
-  "name": "@lambdaschool/generator-prismatopia",
+  "name": "generator-prismatopia",
   "version": "0.1.2",
   "description": "Yeoman generator for Prismatopia",
   "homepage": "https://github.com/Lambda-School-Labs/prismatopia",

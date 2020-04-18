@@ -11,7 +11,7 @@
 
 ```bash
 yarn global add yo
-yarn global add @lambdaschool/generator-prismatopia
+yarn global add generator-prismatopia
 ```
 
 ## Generate a Prismatopia project
