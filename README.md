@@ -20,12 +20,6 @@ yarn global add @lambdaschool/generator-prismatopia
 yo prismatopia
 ```
 
-## Generate `.env`
-
-```bash
-yo prismatopia:local-env
-```
-
 ## License
 
 MIT © [Lambda School](https://lambdaschool.com)
