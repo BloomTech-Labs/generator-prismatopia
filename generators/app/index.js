@@ -6,20 +6,24 @@ const yosay = require('yosay')
 module.exports = class extends Generator {
   prompting () {
     // Have Yeoman greet the user
-    this.log(yosay(`Welcome to the ${chalk.red('Prismatopia')} generator!`))
+    this.log(yosay(`Installing ${chalk.red('Prismatopia')}!`))
   }
 
   writing () {
     // Copy all files
-    this.fs.copy(this.templatePath('**/*'), this.destinationRoot(), {
+    this.fs.copy(this.templatePath('**/*'), this.destinationPath(), {
       globOptions: {
         dot: true,
         ignore: ['**/.git', '**/README.md']
       }
     })
 
-    this.fs.copy(this.templatePath('examples/.env.example'), this.destinationRoot('.env'))
+    this.fs.copy(this.templatePath('examples/.env.example'), this.destinationPath('.env'))
   }
 
-  install () {}
+  install () {
+    this.log(yosay(`Initializing ${chalk.red('Prismatopia')}!`))
+
+    this.spawnCommandSync('make', ['init'])
+  }
 }
